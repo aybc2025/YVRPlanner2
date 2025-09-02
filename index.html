@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>מתכנן טיולים – ונילה RTL</title>
+<meta name="theme-color" content="#0ea5e9" />
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/icon-192.png" />
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<header class="topbar">
+<div class="brand">✈️ מתכנן טיולים</div>
+<div class="actions">
+<button id="btnNewTrip" class="btn">טיול חדש</button>
+<label class="file-btn">ייבוא JSON<input id="importJson" type="file" accept="application/json" hidden></label>
+<label class="file-btn">ייבוא CSV<input id="importCsv" type="file" accept="text/csv,.csv" hidden></label>
+<button id="btnExportJson" class="btn">ייצוא JSON</button>
+<button id="btnExportCsv" class="btn">ייצוא CSV</button>
+<button id="btnInstall" class="btn outline" title="התקנה לטלפון (PWA)">התקנה</button>
+</div>
+</header>
+
+
+<main class="layout">
+<!-- Sidebar: Inventory + Filters -->
+<aside class="sidebar">
+<section>
+<h2>בנק פעילויות</h2>
+<div class="hint">גררו לפריסה היומית</div>
+<ul id="inventoryList" class="inventory" aria-label="בנק פעילויות" tabindex="0"></ul>
+<div class="row">
+<input id="invTitle" class="input" placeholder="שם פעילות"/>
+<input id="invDuration" class="input" type="number" min="15" step="15" value="60" style="width:90px"/>
+</div>
+<div class="row">
+<input id="invLabels" class="input" placeholder="תוויות (מופרדות בנקודה-פסיק ;)"/>
+</div>
+<div class="row">
+<label class="check"><input id="invReusable" type="checkbox" checked> רב-פעמית</label>
+<button id="addInventory" class="btn small">הוספה</button>
+</div>
+</section>
+
+
+<section>
+<h2>סינון</h2>
+<input id="searchBox" class="input" placeholder="חיפוש חופשי"/>
+<div id="labelFilters" class="chips"></div>
+<div class="row">
+<label class="check"><input id="onlyKids" type="checkbox"> ילדים</label>
+<button id="clearFilters" class="btn small outline">ניקוי</button>
+</div>
+</section>
+</aside>
+
+
+<!-- Main: Calendar + Day view -->
+<section class="content">
+<div class="toolbar">
+<button id="prevMonth" class="btn">◀</button>
+<div class="toolbar-title"><span id="monthLabel">אוקטובר 2025</span> · <span id="tripName">טיול לדוגמה</span></div>
+<button id="nextMonth" class="btn">▶</button>
+<button id="btnToday" class="btn outline">היום</button>
+</div>
+
+
+<div class="calendar" id="calendar" aria-label="לוח חודשי"></div>
+
+
+<div class="day-view" id="dayView" hidden>
+<div class="day-head">
+<div>
+<button id="closeDay" class="btn small">חזרה לחודש</button>
+<strong id="dayLabel">ראשון · 12/10/2025</strong>
+</div>
+<div class="row">
+<input id="newTitle" class="input" placeholder="שם פעילות"/>
+</html>
